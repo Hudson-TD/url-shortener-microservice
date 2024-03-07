@@ -34,9 +34,9 @@ app.get('/api/hello', function (req, res) {
 
 app.post("/api/shorturl", (req, res) => {
   const urlRegex = /^(https?|ftp):\/\/[^\s/$.?#].[^\s]*$/i;
-  
+
   if (!urlRegex.test(req.body.url)) {
-    return redirect.json({ error: 'invalid url' })
+    return res.json({ error: 'invalid url' })
   }
 
   let original_url = req.body.url
